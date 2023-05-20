@@ -1,0 +1,52 @@
+﻿body{
+    margin: 0;
+}
+
+.formulario label{
+    display: block;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.menu {
+    background-color: #bdd4e7;
+    text-align: center;
+    /*width: 53.5%;*/
+    margin: 0 auto;
+}
+
+    .menu a {
+        text-decoration: none;
+        background-color: #0aacec;
+        color: #FFF;
+        margin: 0 -0.08em; /* top right left bottom*/
+        padding: 0 0.4em;
+    }
+
+        .menu a:hover {
+            /*text-decoration: none;*/
+            background-color: #0d79a3;
+        }
+
+h1{
+    text-align: center;
+    color: #0d79a3
+}
+
+.image-icon{
+    width: 1em;
+}
