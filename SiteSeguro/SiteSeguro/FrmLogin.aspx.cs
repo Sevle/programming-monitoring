@@ -29,7 +29,10 @@ namespace SiteSeguro
 
             if (autenticado)
             {
-                Page.Response.Redirect("~/FrmUsuarioAutenticado.aspx");
+                Usuario usuario = UsuarioDAO.SelecionarUsuario(login);
+
+                FormsAuthentication.SetAuthCookie(usuario.Nome, true);
+                Page.Response.Redirect("~/adm/Default.aspx");
             }
 
         }

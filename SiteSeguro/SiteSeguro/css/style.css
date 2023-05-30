@@ -28,3 +28,7 @@ h1{
 .div-40p{
     width: 40%;
 }
+
+.status{
+    float: right;    
+}

@@ -75,13 +75,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adm\Default.aspx" />
     <Content Include="App_Data\SecureDB.mdf" />
     <Content Include="App_Data\SecureDB_log.ldf">
       <DependentUpon>SecureDB.mdf</DependentUpon>
     </Content>
     <Content Include="Default.aspx" />
     <Content Include="FrmLogin.aspx" />
-    <Content Include="FrmUsuarioAutenticado.aspx" />
     <Content Include="FrmUsuarios.aspx" />
     <Content Include="Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -97,6 +97,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adm\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,13 +117,6 @@
     </Compile>
     <Compile Include="FrmLogin.aspx.designer.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FrmUsuarioAutenticado.aspx.cs">
-      <DependentUpon>FrmUsuarioAutenticado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FrmUsuarioAutenticado.aspx.designer.cs">
-      <DependentUpon>FrmUsuarioAutenticado.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.aspx.cs">
       <DependentUpon>FrmUsuarios.aspx</DependentUpon>
@@ -159,6 +159,7 @@
     <Content Include="Modelo.edmx.diagram">
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Content>
+    <Content Include="adm\Web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
