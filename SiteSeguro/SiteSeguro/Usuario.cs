@@ -14,14 +14,21 @@ namespace SiteSeguro
     
     public partial class Usuario
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Usuario()
+        {
+            this.LogAcessos = new HashSet<LogAcesso>();
+        }
+    
         public int IdUsuario { get; set; }
         public string Nome { get; set; }
         public Nullable<System.DateTime> DataNasc { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
-        public Nullable<System.DateTime> UltimoAcesso { get; set; }
         public int PerfilId { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LogAcesso> LogAcessos { get; set; }
         public virtual Perfil Perfil { get; set; }
     }
 }

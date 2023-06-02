@@ -88,6 +88,7 @@
       <LastGenOutput>Modelo.Context.cs</LastGenOutput>
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Content>
+    <Content Include="Modelo.edmx.sql" />
     <Content Include="Modelo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -125,6 +126,10 @@
     <Compile Include="FrmUsuarios.aspx.designer.cs">
       <DependentUpon>FrmUsuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LogAcesso.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogAcessoDAO.cs" />
     <Compile Include="LoginDAO.cs" />
     <Compile Include="Modelo.Context.cs">
       <AutoGen>True</AutoGen>

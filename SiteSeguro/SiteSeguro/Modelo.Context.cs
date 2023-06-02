@@ -25,6 +25,7 @@ namespace SiteSeguro
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<LogAcesso> LogAcessos { get; set; }
         public virtual DbSet<Perfil> Perfils { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
     }

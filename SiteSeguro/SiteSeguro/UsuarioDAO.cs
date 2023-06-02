@@ -45,5 +45,22 @@ namespace SiteSeguro
 
             return user;
         }
+
+        internal static Usuario AtualizarLogUsuario(string login)
+        {
+            Usuario user = null;
+
+            try
+            {
+                user = SelecionarUsuario(login);
+                LogAcessoDAO.Cadastrar(user);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return user;
+        }
     }
 }

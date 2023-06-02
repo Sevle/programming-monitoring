@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SecureDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LogAcesso">
+    <Key>
+      <PropertyRef Name="IdLogAcesso" />
+    </Key>
+    <Property Name="IdLogAcesso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="UltimoAcesso" Type="datetime" Nullable="false" />
+    <Property Name="TempoAcesso" Type="time" Precision="7" />
+  </EntityType>
   <EntityType Name="Perfil">
     <Key>
       <PropertyRef Name="IdPerfil" />
@@ -16,9 +25,20 @@
     <Property Name="DataNasc" Type="datetime" />
     <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Senha" Type="varchar" MaxLength="256" Nullable="false" />
-    <Property Name="UltimoAcesso" Type="datetime" />
     <Property Name="PerfilId" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_LogAcesso_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="LogAcesso" Type="Self.LogAcesso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="LogAcesso">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Usuario_Perfil">
     <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -32,8 +52,13 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="SecureDBModelStoreContainer">
+    <EntitySet Name="LogAcesso" EntityType="Self.LogAcesso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LogAcesso_Usuario" Association="Self.FK_LogAcesso_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="LogAcesso" EntitySet="LogAcesso" />
+    </AssociationSet>
     <AssociationSet Name="FK_Usuario_Perfil" Association="Self.FK_Usuario_Perfil">
       <End Role="Perfil" EntitySet="Perfil" />
       <End Role="Usuario" EntitySet="Usuario" />
