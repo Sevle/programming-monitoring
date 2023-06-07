@@ -83,6 +83,7 @@
     <Content Include="Default.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmUsuarios.aspx" />
+    <Content Include="gerente\Index.aspx" />
     <Content Include="Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Modelo.Context.cs</LastGenOutput>
@@ -95,6 +96,7 @@
       <LastGenOutput>Modelo.cs</LastGenOutput>
     </Content>
     <Content Include="css\style.css" />
+    <Content Include="vendedor\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +128,13 @@
     <Compile Include="FrmUsuarios.aspx.designer.cs">
       <DependentUpon>FrmUsuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="gerente\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gerente\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogAcesso.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -156,6 +165,13 @@
     </Compile>
     <Compile Include="UsuarioDAO.cs" />
     <Compile Include="UsuarioPOCO.cs" />
+    <Compile Include="vendedor\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendedor\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Modelo.edmx">
@@ -166,7 +182,9 @@
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Content>
     <Content Include="adm\Web.config" />
+    <Content Include="gerente\Web.config" />
     <None Include="packages.config" />
+    <Content Include="vendedor\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

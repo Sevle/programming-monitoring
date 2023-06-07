@@ -17,7 +17,8 @@ namespace SiteSeguro.adm
 
         private void VerificiarPerfilUsuario(Usuario user)
         {
-            if (user.GetPerfil.Descricao != "Administrador")
+            if (user == null ||
+                    !user.GetPerfil.Descricao.Contains("Administrador"))
             {
                 Response.Redirect("~/");
             }

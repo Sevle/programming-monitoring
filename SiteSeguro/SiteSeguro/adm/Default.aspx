@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="status">
-            <asp:LoginStatus runat="server" />
+            <asp:LoginStatus runat="server" LoginText="Entrar" LogoutText="Sair" />
         </div>
         
         <div>
