@@ -33,6 +33,7 @@ namespace SiteSeguro
 
                 Usuario usuario = UsuarioDAO.AtualizarLogUsuario(login);
 
+                Session["user"] = usuario;
                 FormsAuthentication.SetAuthCookie(usuario.Nome, true);
                 Page.Response.Redirect("~/adm/Default.aspx");
             }

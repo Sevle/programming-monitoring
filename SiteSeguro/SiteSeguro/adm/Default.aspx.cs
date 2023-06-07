@@ -11,9 +11,16 @@ namespace SiteSeguro.adm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario user = (Usuario)Session["user"];
+            VerificiarPerfilUsuario(user);
+        }
 
-            
-
+        private void VerificiarPerfilUsuario(Usuario user)
+        {
+            if (user.GetPerfil.Descricao != "Administrador")
+            {
+                Response.Redirect("~/");
+            }
         }
     }
 }

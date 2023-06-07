@@ -23,5 +23,27 @@ namespace SiteSeguro
             }
             return perfis;
         }
+
+        internal static Perfil SelecionarPerfil(int perfilId)
+        {
+            Perfil perfil = null;
+
+            try
+            {
+                using (var ctx = new SecureDBEntities())
+                {
+                    perfil = ctx.Perfils.FirstOrDefault(
+                                x => x.IdPerfil == perfilId
+                             );
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return perfil;
+
+
+        }
     }
 }
