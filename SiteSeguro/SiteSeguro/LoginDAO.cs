@@ -10,12 +10,8 @@ namespace SiteSeguro
             {
                 Usuario user = UsuarioDAO.SelecionarUsuario(login);
                 if (user != null)
-                {
                     if (user.Senha == senhaCriptografada)
-                    {
                         return true;
-                    }
-                }
             }
             catch (Exception ex)
             {

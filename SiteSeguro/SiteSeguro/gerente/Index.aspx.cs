@@ -14,22 +14,17 @@ namespace SiteSeguro.gerente
             Usuario user = (Usuario)Session["user"];
             VerificiarPerfilUsuario(user);
         }
-
         private void VerificiarPerfilUsuario(Usuario user)
         {
             if (user != null)
             {
                 var perfil = user.GetPerfil.Descricao;
-                if (!perfil.Contains("Administrador") &&
-                    !perfil.Contains("Gerente"))
-                {
+
+                if (!perfil.Contains("Administrador") && !perfil.Contains("Gerente"))
                     Response.Redirect("~/");
-                }
             }
             else
-            {
                 Response.Redirect("~/");
-            }
         }
     }
 }

@@ -14,23 +14,16 @@ namespace SiteSeguro.vendedor
             Usuario user = (Usuario)Session["user"];
             VerificiarPerfilUsuario(user);
         }
-
         private void VerificiarPerfilUsuario(Usuario user)
         {
             if (user != null)
             {
                 var perfil = user.GetPerfil.Descricao;
-                if (!perfil.Contains("Administrador") &&
-                    !perfil.Contains("Gerente") &&
-                    !perfil.Contains("Vendedor"))
-                {
+                if (!perfil.Contains("Administrador") && !perfil.Contains("Gerente") && !perfil.Contains("Vendedor"))
                     Response.Redirect("~/");
-                }
             }
             else
-            {
                 Response.Redirect("~/");
-            }
         }
     }
 }

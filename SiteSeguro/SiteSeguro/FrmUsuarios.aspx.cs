@@ -13,9 +13,7 @@ namespace SiteSeguro
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-            {
                 AtualizarDDLPerfis();
-            }
         }
 
         private void AtualizarDDLPerfis()
@@ -39,8 +37,7 @@ namespace SiteSeguro
                 user.Login = txtLogin.Text;
                 
                 var senhaNormal = txtSenha.Text;
-                string senhaCriptografada = FormsAuthentication.
-                    HashPasswordForStoringInConfigFile(senhaNormal, "SHA1");
+                string senhaCriptografada = FormsAuthentication.HashPasswordForStoringInConfigFile(senhaNormal, "SHA1");
 
                 user.Senha = senhaCriptografada;
 

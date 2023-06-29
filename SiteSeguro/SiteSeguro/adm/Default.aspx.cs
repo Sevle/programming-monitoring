@@ -17,11 +17,35 @@ namespace SiteSeguro.adm
 
         private void VerificiarPerfilUsuario(Usuario user)
         {
-            if (user == null ||
-                    !user.GetPerfil.Descricao.Contains("Administrador"))
-            {
+            if (user == null || !user.GetPerfil.Descricao.Contains("Administrador"))
                 Response.Redirect("~/");
+        }
+
+        protected void btn_confirmar(object sender, EventArgs e)
+        {
+            try
+            {
+                if (FU_image.HasFile)
+                {
+                    var arquivo = FU_image.PostedFile;
+                    var tipo = arquivo.ContentType;
+                    
+                    if(tipo.Contains("image/"))
+                    {
+                        var extensao = tipo.Replace("image/", "");
+                        int id = 212;
+                        var nome_arquivo = id + "." + extensao;
+                        var caminho = MapPath("~/Upload");
+                        arquivo.SaveAs(caminho + "\\" + nome_arquivo);
+
+                        img_perfil.Src = "upload/" + nome_arquivo;
+                    }
+                    else
+                        lbl_mensagem.InnerText = "Pode parar d atrapalhar? seu comedia";
+                }
             }
+            catch 
+            { }
         }
     }
 }

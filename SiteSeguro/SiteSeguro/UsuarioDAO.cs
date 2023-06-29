@@ -15,8 +15,7 @@ namespace SiteSeguro
                 {
                     ctx.Usuarios.Add(user);
                     ctx.SaveChanges();
-                    mensagem = "Usuário " + user.Nome +
-                        " cadastrado com sucesso!";
+                    mensagem = "Usuário " + user.Nome + " cadastrado com sucesso!";
                 }
             }
             catch (Exception ex)
@@ -33,15 +32,10 @@ namespace SiteSeguro
             try
             {
                 using (var ctx = new SecureDBEntities())
-                {
-                    user = ctx.Usuarios.FirstOrDefault(
-                        x => x.Login == login);
-                }
+                    user = ctx.Usuarios.FirstOrDefault(x => x.Login == login);
             }
             catch (Exception ex)
-            {
-
-            }
+            { }
 
             return user;
         }
@@ -56,9 +50,7 @@ namespace SiteSeguro
                 LogAcessoDAO.Cadastrar(user);
             }
             catch (Exception ex)
-            {
-
-            }
+            { }
 
             return user;
         }

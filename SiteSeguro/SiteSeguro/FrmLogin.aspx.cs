@@ -19,18 +19,14 @@ namespace SiteSeguro
             var login = txtLogin.Text;
             var senha = txtSenha.Text;
 
-            var senhaCriptografada = FormsAuthentication.
-                HashPasswordForStoringInConfigFile(senha, "SHA1");
+            var senhaCriptografada = FormsAuthentication.HashPasswordForStoringInConfigFile(senha, "SHA1");
 
             //Acessar o BD e comparar
-
-            bool autenticado = LoginDAO.
-                AutenticarUsuario(login, senhaCriptografada);
+            bool autenticado = LoginDAO. AutenticarUsuario(login, senhaCriptografada);
 
             if (autenticado)
             {
                 //Usuario usuario = UsuarioDAO.SelecionarUsuario(login);
-
                 Usuario usuario = UsuarioDAO.AtualizarLogUsuario(login);
 
                 Session["user"] = usuario;
@@ -38,21 +34,16 @@ namespace SiteSeguro
                 var perfil = usuario.GetPerfil.Descricao;
 
                 if (perfil == "Administrador")
-                {
                     Page.Response.Redirect("~/adm/Default.aspx");
-                }
+
                 else if (perfil.Contains("Gerente"))
-                {
                     Page.Response.Redirect("~/gerente/Index.aspx");
-                }
+
                 else if (perfil.Contains("Vendedor"))
-                {
                     Page.Response.Redirect("~/vendedor/Index.aspx");
-                }
+
                 else
-                {
                     Page.Response.Redirect("~/Default.aspx");
-                }
             }
 
         }

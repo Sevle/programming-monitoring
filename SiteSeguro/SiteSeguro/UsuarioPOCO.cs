@@ -7,11 +7,11 @@ namespace SiteSeguro
 {
     public partial class Usuario
     {
-        public Perfil GetPerfil {
+        public Perfil GetPerfil 
+        {
             get
             {
-                Perfil perfil =
-                    PerfilDAO.SelecionarPerfil(this.PerfilId);
+                Perfil perfil =PerfilDAO.SelecionarPerfil(this.PerfilId);
                 return perfil;
             }
         }

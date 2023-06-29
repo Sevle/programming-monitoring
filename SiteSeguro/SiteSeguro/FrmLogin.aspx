@@ -13,24 +13,12 @@
     <h1>Identifique-se</h1>
     <form id="form1" runat="server">
         <div class="div-form div-40p">
-            <p>
                 <label>Login:</label>
-                <asp:TextBox runat="server"
-                    ID="txtLogin" />
-            </p>
+                <asp:TextBox runat="server" ID="txtLogin" />
 
-            <p>
                 <label>Senha:</label>
-                <asp:TextBox runat="server"
-                    ID="txtSenha"
-                    TextMode="Password" />
-            </p>
-            <p>
-                <asp:Button Text="Entrar" 
-                    runat="server" 
-                    id="btnLogin"
-                    OnClick="btnLogin_Click"/>
-            </p>
+                <asp:TextBox runat="server" ID="txtSenha" TextMode="Password" />
+                <asp:Button Text="Entrar" runat="server" ID="btnLogin" OnClick="btnLogin_Click" />
         </div>
     </form>
 </body>
