@@ -32,18 +32,28 @@ namespace SiteSeguro
                 Session["user"] = usuario;
                 FormsAuthentication.SetAuthCookie(usuario.Nome, true);
                 var perfil = usuario.GetPerfil.Descricao;
+                switch (perfil)
+                {
+                    case "Administrador":
+                        Page.Response.Redirect("~/adm/Default.aspx");
+                        break;
 
-                if (perfil == "Administrador")
-                    Page.Response.Redirect("~/adm/Default.aspx");
+                    case "Vendedor":
+                        Page.Response.Redirect("~/vendedor/Index.aspx");
+                        break;
 
-                else if (perfil.Contains("Gerente"))
-                    Page.Response.Redirect("~/gerente/Index.aspx");
+                    case "Gerente Geral":
+                        Page.Response.Redirect("~/gerente/Index.aspx");
+                        break;
 
-                else if (perfil.Contains("Vendedor"))
-                    Page.Response.Redirect("~/vendedor/Index.aspx");
+                    case "Gerente Setorial":
+                        Page.Response.Redirect("~/gerente/Index.aspx");
+                        break;
 
-                else
-                    Page.Response.Redirect("~/Default.aspx");
+                    default:
+                        Page.Response.Redirect("~/Default.aspx");
+                        break;
+                }
             }
 
         }
